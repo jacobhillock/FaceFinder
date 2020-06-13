@@ -3,8 +3,10 @@ import platform, os
 from shutil import copy2
 
 file_del = '/'
+default_search = '/'
 if platform.system() == 'Windows':
     file_del = '\\'
+    default_search = 'C:\\'
 
 image_ext = ['jpg', 'jpeg', 'png']
 knowns = []
@@ -18,10 +20,10 @@ for file in os.listdir(knowns_dir):
             knowns.append(face)
 
 confirmed = []
-search_base = input("Enter full searching path, defaukt 'C:\'")
+search_base = input("Enter full searching path, default 'C:\'")
 if search_base == '':
-    search_base = 'C:\\'
-for root, dir, files in os.walk():
+    search_base = default_search
+for root, dir, files in os.walk(search_base):
     print(root)
     for file in files:
         if file.split(".")[-1] in image_ext:
