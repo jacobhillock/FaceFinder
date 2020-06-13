@@ -1,0 +1,4 @@
+venv/
+knowns/*.png
+knowns/*.jpeg
+knowns/*.jpg
